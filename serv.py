@@ -3,32 +3,53 @@ import threading
 import signal
 import sys
 import struct
+import random
+import argparse
 from functools import partial
 
 BUFF=1024
+UDP_CHAT_PORT=3434
 MDSCV_PORT=5454
 MDSCV_ADDR='224.0.0.251'
-MDSCV_THREAD = True
 
+mc_groups = dict()
 clients = list()
 
 def signal_handler(signal, frame, server_socket, clients, mdns_socket):
     print("Closing server...")
 
+    # Closing mDNS UDP socket
     try:
         mdns_socket.shutdown(socket.SHUT_RD)
     except OSError:
         mdns_socket.close()
     
+    # Closing tcp client sockets
     for client_socket in clients:
-        client_socket.sendall("[Server shutdown]".encode('utf-8'))
+        client_socket.sendall("[SERVER_SHUTDOWN]".encode('utf-8'))
         client_socket.close()
         print(client_socket, "[Server shutdown]")
 
+    udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+    udp_sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, 2)
+
+    # Closing multicasts groups + TCP clients sockets (used for multicast managing)
+    print("Deleting multicast groups...")
+    for mc_group in mc_groups.keys():
+        udp_sock.sendto("[SERVER_SHUTDOWN]".encode('utf-8'), (mc_group, UDP_CHAT_PORT))
+        print(mc_group, "[Server shutdown]")
+        
+        for client_socket in mc_groups[mc_group][1]:
+            try:
+                client_socket.shutdown(socket.SHUT_RD)
+            except Exception:
+                pass
+    
+    udp_sock.close()
     server_socket.close()
     sys.exit(0)
 
-def send_ip_address_mdns(mdns_sock, server_name="chat_server"):
+def send_ip_address_mdns(mdns_sock, server_name):
     while True:
         try:
             data, address = mdns_sock.recvfrom(BUFF)
@@ -38,34 +59,83 @@ def send_ip_address_mdns(mdns_sock, server_name="chat_server"):
             
             if not data:
                 break
-
-            if data.decode() == f"Hi, are you {server_name}?":               
+            
+            if data.decode('utf-8') == f"Hi, are you {server_name}?":               
                 mdns_sock.sendto("Yup".encode(), address)
 
         except Exception as e:
             print(f"Error: {e}, MDNS")
             break
 
-def handle_client(client_socket):
+def manage_multicast_group(client_socket, client_address, mc_group):
+    if not mc_group in mc_groups.keys(): # First user - Adding multicast group, generating code
+        secret_code = "".join([str(random.randint(0,9)) for _ in range(0,6)])
+        mc_groups[mc_group] = [secret_code, []]
+        mc_groups[mc_group][1].append(client_socket)
+        client_socket.sendall(f"[NEW_GROUP]:{secret_code}".encode('utf-8'))
+        print(client_address, f"[Client switched to multicast group: {mc_group}]")
+
+    else: # The group exists - checking secret code
+        client_socket.sendall("[CODE_REQUIRED]".encode('utf-8'))
+        code = client_socket.recv(BUFF).decode('utf-8')
+
+        if code == mc_groups[mc_group][0]:
+            client_socket.sendall("[CORRECT_CODE]".encode('utf-8'))
+            mc_groups[mc_group][1].append(client_socket)
+            print(client_address, f"[Client switched to multicast group: {mc_group}]")
+        else:
+            client_socket.sendall("[WRONG_CODE]".encode('utf-8'))
+            print(client_socket, "[Client shutdown]")
+    
+    while True: # Client shutdown
+        try:
+            data = client_socket.recv(BUFF).decode('utf-8')
+
+            if data == '[CLIENT_SHUTDOWN]':
+                print(client_address, "[Client shutdown]")
+                mc_groups[mc_group][1].remove(client_socket)
+                break
+            
+            if not data:
+                break
+
+        except Exception as e:
+            print(f"Error: {e}")
+            break
+    
+    client_socket.close()
+
+def handle_client(client_socket, client_address):
     while True:
         try:
             data = client_socket.recv(BUFF).decode('utf-8')
             if not data:
                 break
+            
+            if data.startswith("[JOIN_MC_GROUP]"): # Multicast request
+                clients.remove(client_socket)
+                mc_group = data.split(":")[1]
+                manage_multicast_group(client_socket, client_address, mc_group)
+                break
+                
 
-            if data == 'Bye':
-                print(client_socket, "[Client shutdown]")
+            if data == '[CLIENT_SHUTDOWN]':
+                print(client_address, "[Client shutdown]")
                 break
 
             for client in clients:
                 if client != client_socket:
                     client.sendall(data.encode('utf-8'))
+        
         except Exception as e:
             print(f"Error: {e}")
             break
         
-    client_socket.close()
-    clients.remove(client_socket)
+    client_socket.close()   
+    try:
+        clients.remove(client_socket)
+    except ValueError: # Client removed during joining multicast group
+        pass
 
 def start_serv():
     # Create a TCP socket
@@ -88,8 +158,9 @@ def start_serv():
     print("Server started. Waiting for connections...")
 
     # mDNS thread
-    mdns_thread = threading.Thread(target=send_ip_address_mdns, args=(mdns_sock,))
-    mdns_thread.start()
+    if args.mdns:
+        mdns_thread = threading.Thread(target=send_ip_address_mdns, args=(mdns_sock, args.mdns))
+        mdns_thread.start()
 
     # Signal handler for termination
     signal_handler_partial = partial(signal_handler, server_socket=server_socket, clients=clients, mdns_socket=mdns_sock)
@@ -103,7 +174,7 @@ def start_serv():
 
             clients.append(client_socket)
 
-            client_thread = threading.Thread(target=handle_client, args=(client_socket,))
+            client_thread = threading.Thread(target=handle_client, args=(client_socket, client_address,))
             client_thread.start()
         except KeyboardInterrupt:
             break
@@ -112,4 +183,8 @@ def start_serv():
 
 #TODO make options 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="Choose method of starting server.")
+    parser.add_argument('-m', '--mdns', help="Enable mDNS discovery [Name is optional]", nargs='?', action='store', const='chat_server')
+    args = parser.parse_args()
+    print(args)
     start_serv()
