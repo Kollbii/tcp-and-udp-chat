@@ -52,7 +52,7 @@ def signal_handler(signal, frame, server_socket, clients, mdns_socket):
         clients: List of clients socket.
         mdns_socket: Multicast socket for managing multicast group.
     Returns:
-        none: Exits program with code 0
+        Exits program with code 0
 
     Example:
         &gt;&gt;&gt; signal_handler_partial = partial(signal_handler, server_socket=server_socket, clients=clients, mdns_socket=mdns_sock)
@@ -96,10 +96,10 @@ def send_ip_address_mdns(mdns_sock, server_name):
     Sends IP addres when requested from client. Used with threading module.
 
     Args:
-        mdns_sock: Multicast socket for managing multicast group.
+        mdns_sock: Multicast socket for listening for queries and answering them.
         server_name: Server name.
     Returns:
-        none: None
+        None
 
     Example:
         &gt;&gt;&gt; mdns_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
@@ -126,14 +126,14 @@ def send_ip_address_mdns(mdns_sock, server_name):
 
 def manage_multicast_group(client_socket, client_address, mc_group):
     &#39;&#39;&#39;
-    Manages multicast grops. First client to connect is given secret code to share with the others.
+    Manages multicast grops. The first client to connect is given secret code to share with the others.
 
     Args:
         client_socket: Client socket.
         client_address: Client address.
         mc_group: Multicast group client wants to join.
     Returns:
-        none: None
+        None
 
     Example:
         &gt;&gt;&gt; manage_multicast_group(client_socket, client_address, mc_group)
@@ -309,7 +309,7 @@ if __name__ == &#39;__main__&#39;:
 <h2 id="returns">Returns</h2>
 <p>None</p>
 <h2 id="example">Example</h2>
-<pre><code class="language-python-repl">&gt;&gt;&gt; handle_client(client_socket, client_address)
+<pre><code class="python-repl">&gt;&gt;&gt; handle_client(client_socket, client_address)
 </code></pre>
 <h2 id="description">Description</h2>
 <p>This function is responsible for handling and managing client connections.
@@ -385,7 +385,7 @@ that the client has shutdown, and breaks the loop to exit.</p></div>
 <span>def <span class="ident">manage_multicast_group</span></span>(<span>client_socket, client_address, mc_group)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Manages multicast grops. First client to connect is given secret code to share with the others.</p>
+<div class="desc"><p>Manages multicast grops. The first client to connect is given secret code to share with the others.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>client_socket</code></strong></dt>
@@ -396,12 +396,9 @@ that the client has shutdown, and breaks the loop to exit.</p></div>
 <dd>Multicast group client wants to join.</dd>
 </dl>
 <h2 id="returns">Returns</h2>
-<dl>
-<dt><code>none</code></dt>
-<dd>None</dd>
-</dl>
+<p>None</p>
 <h2 id="example">Example</h2>
-<pre><code class="language-python-repl">&gt;&gt;&gt; manage_multicast_group(client_socket, client_address, mc_group)
+<pre><code class="python-repl">&gt;&gt;&gt; manage_multicast_group(client_socket, client_address, mc_group)
 </code></pre></div>
 <details class="source">
 <summary>
@@ -409,14 +406,14 @@ that the client has shutdown, and breaks the loop to exit.</p></div>
 </summary>
 <pre><code class="python">def manage_multicast_group(client_socket, client_address, mc_group):
     &#39;&#39;&#39;
-    Manages multicast grops. First client to connect is given secret code to share with the others.
+    Manages multicast grops. The first client to connect is given secret code to share with the others.
 
     Args:
         client_socket: Client socket.
         client_address: Client address.
         mc_group: Multicast group client wants to join.
     Returns:
-        none: None
+        None
 
     Example:
         &gt;&gt;&gt; manage_multicast_group(client_socket, client_address, mc_group)
@@ -467,17 +464,14 @@ that the client has shutdown, and breaks the loop to exit.</p></div>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>mdns_sock</code></strong></dt>
-<dd>Multicast socket for managing multicast group.</dd>
+<dd>Multicast socket for listening for queries and answering them.</dd>
 <dt><strong><code>server_name</code></strong></dt>
 <dd>Server name.</dd>
 </dl>
 <h2 id="returns">Returns</h2>
-<dl>
-<dt><code>none</code></dt>
-<dd>None</dd>
-</dl>
+<p>None</p>
 <h2 id="example">Example</h2>
-<pre><code class="language-python-repl">&gt;&gt;&gt; mdns_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+<pre><code class="python-repl">&gt;&gt;&gt; mdns_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
 &gt;&gt;&gt; mdns_sock.bind(('', 8484))
 &gt;&gt;&gt; mdns_thread = threading.Thread(target=send_ip_address_mdns, args=(mdns_sock,))
 &gt;&gt;&gt; mdns_thread.start()
@@ -491,10 +485,10 @@ that the client has shutdown, and breaks the loop to exit.</p></div>
     Sends IP addres when requested from client. Used with threading module.
 
     Args:
-        mdns_sock: Multicast socket for managing multicast group.
+        mdns_sock: Multicast socket for listening for queries and answering them.
         server_name: Server name.
     Returns:
-        none: None
+        None
 
     Example:
         &gt;&gt;&gt; mdns_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
@@ -535,12 +529,9 @@ that the client has shutdown, and breaks the loop to exit.</p></div>
 <dd>Multicast socket for managing multicast group.</dd>
 </dl>
 <h2 id="returns">Returns</h2>
-<dl>
-<dt><code>none</code></dt>
-<dd>Exits program with code 0</dd>
-</dl>
+<p>Exits program with code 0</p>
 <h2 id="example">Example</h2>
-<pre><code class="language-python-repl">&gt;&gt;&gt; signal_handler_partial = partial(signal_handler, server_socket=server_socket, clients=clients, mdns_socket=mdns_sock)
+<pre><code class="python-repl">&gt;&gt;&gt; signal_handler_partial = partial(signal_handler, server_socket=server_socket, clients=clients, mdns_socket=mdns_sock)
 &gt;&gt;&gt; signal.signal(signal.SIGINT, signal_handler_partial)
 </code></pre></div>
 <details class="source">
@@ -556,7 +547,7 @@ that the client has shutdown, and breaks the loop to exit.</p></div>
         clients: List of clients socket.
         mdns_socket: Multicast socket for managing multicast group.
     Returns:
-        none: Exits program with code 0
+        Exits program with code 0
 
     Example:
         &gt;&gt;&gt; signal_handler_partial = partial(signal_handler, server_socket=server_socket, clients=clients, mdns_socket=mdns_sock)

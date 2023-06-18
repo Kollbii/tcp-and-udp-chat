@@ -302,13 +302,12 @@ def receive_messages(client_socket):
 
     Args:
         client_socket (socket): The TCP client socket.
-        username (str): The username for the chat.
 
     Returns:
         None
 
     Example:
-        >>> receive_thread = threading.Thread(target=receive_messages, args=(client_socket, username))
+        >>> receive_thread = threading.Thread(target=receive_messages, args=(client_socket,))
         >>> receive_thread.start()
 
     Description:

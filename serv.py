@@ -24,7 +24,7 @@ def signal_handler(signal, frame, server_socket, clients, mdns_socket):
         clients: List of clients socket.
         mdns_socket: Multicast socket for managing multicast group.
     Returns:
-        none: Exits program with code 0
+        Exits program with code 0
 
     Example:
         >>> signal_handler_partial = partial(signal_handler, server_socket=server_socket, clients=clients, mdns_socket=mdns_sock)
@@ -68,10 +68,10 @@ def send_ip_address_mdns(mdns_sock, server_name):
     Sends IP addres when requested from client. Used with threading module.
 
     Args:
-        mdns_sock: Multicast socket for managing multicast group.
+        mdns_sock: Multicast socket for listening for queries and answering them.
         server_name: Server name.
     Returns:
-        none: None
+        None
 
     Example:
         >>> mdns_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
@@ -98,14 +98,14 @@ def send_ip_address_mdns(mdns_sock, server_name):
 
 def manage_multicast_group(client_socket, client_address, mc_group):
     '''
-    Manages multicast grops. First client to connect is given secret code to share with the others.
+    Manages multicast grops. The first client to connect is given secret code to share with the others.
 
     Args:
         client_socket: Client socket.
         client_address: Client address.
         mc_group: Multicast group client wants to join.
     Returns:
-        none: None
+        None
 
     Example:
         >>> manage_multicast_group(client_socket, client_address, mc_group)
