@@ -16,6 +16,20 @@ mc_groups = dict()
 clients = list()
 
 def signal_handler(signal, frame, server_socket, clients, mdns_socket):
+    '''
+    Handles signal. Used only with *partial* package.
+
+    Args:
+        server_socket: Server socket on which actions are performed.
+        clients: List of clients socket.
+        mdns_socket: Multicast socket for managing multicast group.
+    Returns:
+        none: Exits program with code 0
+
+    Example:
+        >>> signal_handler_partial = partial(signal_handler, server_socket=server_socket, clients=clients, mdns_socket=mdns_sock)
+        >>> signal.signal(signal.SIGINT, signal_handler_partial)
+    '''
     print("Closing server...")
 
     # Closing mDNS UDP socket
@@ -50,6 +64,21 @@ def signal_handler(signal, frame, server_socket, clients, mdns_socket):
     sys.exit(0)
 
 def send_ip_address_mdns(mdns_sock, server_name):
+    '''
+    Sends IP addres when requested from client. Used with threading module.
+
+    Args:
+        mdns_sock: Multicast socket for managing multicast group.
+        server_name: Server name.
+    Returns:
+        none: None
+
+    Example:
+        >>> mdns_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+        >>> mdns_sock.bind(('', 8484))
+        >>> mdns_thread = threading.Thread(target=send_ip_address_mdns, args=(mdns_sock,))
+        >>> mdns_thread.start()
+    '''
     while True:
         try:
             data, address = mdns_sock.recvfrom(BUFF)
@@ -68,6 +97,19 @@ def send_ip_address_mdns(mdns_sock, server_name):
             break
 
 def manage_multicast_group(client_socket, client_address, mc_group):
+    '''
+    Manages multicast grops. First client to connect is given secret code to share with the others.
+
+    Args:
+        client_socket: Client socket.
+        client_address: Client address.
+        mc_group: Multicast group client wants to join.
+    Returns:
+        none: None
+
+    Example:
+        >>> manage_multicast_group(client_socket, client_address, mc_group)
+    '''
     if not mc_group in mc_groups.keys(): # First user - Adding multicast group, generating code
         secret_code = "".join([str(random.randint(0,9)) for _ in range(0,6)])
         mc_groups[mc_group] = [secret_code, []]
@@ -106,6 +148,30 @@ def manage_multicast_group(client_socket, client_address, mc_group):
     client_socket.close()
 
 def handle_client(client_socket, client_address):
+    '''
+    Handles and manages client connections.
+
+    Args:
+        client_socket (socket): The client socket object.
+        client_address (tuple): The client address (IP, port).
+    Returns:
+        None
+
+    Example:
+        >>> handle_client(client_socket, client_address)
+
+    Description:
+        This function is responsible for handling and managing client connections.
+        It continuously receives data from the client socket, processes the data,
+        and sends it to other connected clients.
+
+        If the received data starts with "[JOIN_MC_GROUP]", indicating a multicast request,
+        the function removes the client socket from the list of clients, extracts the multicast
+        group information, and calls the 'manage_multicast_group' function.
+
+        If the received data is "[CLIENT_SHUTDOWN]", the function prints a message indicating
+        that the client has shutdown, and breaks the loop to exit.
+    '''
     while True:
         try:
             data = client_socket.recv(BUFF).decode('utf-8')
@@ -138,6 +204,9 @@ def handle_client(client_socket, client_address):
         pass
 
 def start_serv():
+    '''
+    Starts server. Creates TCP and UDP socket. Starts threads for client handlers.
+    '''
     # Create a TCP socket
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -181,7 +250,7 @@ def start_serv():
 
     server_socket.close()
 
-#TODO make options 
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Choose method of starting server.")
     parser.add_argument('-m', '--mdns', help="Enable mDNS discovery [Name is optional]", nargs='?', action='store', const='chat_server')

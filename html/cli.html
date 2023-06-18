@@ -1,0 +1,1162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>cli API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>cli</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import socket
+import threading
+import signal
+import sys
+import struct
+import ipaddress
+from functools import partial
+import argparse
+
+BUFF=1024
+UDP_CHAT_PORT=3434
+MDNS_PORT=5454
+MDNS_ADDR=&#39;224.0.0.251&#39;
+
+def signal_handler(signal, frame, client_socket, udp_client_socket):
+    &#39;&#39;&#39;
+    Handles the termination signal and performs cleanup operations for the client. Used with *partial* module
+
+    Args:
+        signal (int): The signal number.
+        frame (frame): The current stack frame.
+        client_socket (socket): The TCP client socket.
+        udp_client_socket (socket): The UDP client socket.
+
+    Returns:
+        None
+
+    Example:
+        &gt;&gt;&gt; signal_handler_partial = partial(signal_handler, client_socket=client_socket, udp_client_socket=udp_client_socket)
+        &gt;&gt;&gt; signal.signal(signal.SIGINT, signal_handler_partial)
+
+    Description:
+        This function is invoked when a termination signal is received, and it performs the
+        necessary cleanup operations for the client.
+    &#39;&#39;&#39;
+    print(&#34;Closing client...&#34;)
+
+    try:
+        udp_client_socket.shutdown(socket.SHUT_RD)
+    except OSError:
+        udp_client_socket.close()
+
+    try:
+        client_socket.sendall(&#39;[CLIENT_SHUTDOWN]&#39;.encode(&#39;utf-8&#39;))
+    except OSError as e:
+        if e.errno == 9:
+            sys.exit()
+        else:
+            print(f&#34;Error: {e}&#34;)
+
+    client_socket.close()
+    sys.exit(0)
+
+def get_server_ip_mdns(server_name):
+    &#39;&#39;&#39;
+    Retrieves the IP address of the server using multicast DNS (mDNS) discovery.
+
+    Args:
+        server_name (str): The name of the server to discover.
+
+    Returns:
+        str: The IP address of the discovered server, or None if not found.
+
+    Example:
+        &gt;&gt;&gt; serv_addr = get_server_ip_mdns(&#39;chat_server&#39;)
+        &gt;&gt;&gt; print(serv_addr)
+        &#39;192.168.23.157&#39;
+    &#39;&#39;&#39;
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+    sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, 2)
+
+    sock.sendto(f&#34;Hi, are you {server_name}?&#34;.encode(&#39;utf-8&#39;), (MDNS_ADDR, MDNS_PORT))
+
+    sock.settimeout(10)
+    ip_address = None
+
+    while True:
+        try:
+            data, addr = sock.recvfrom(BUFF)
+        except socket.timeout:
+            print(&#34;Failed to find the server via mulitcast&#34;)
+            break
+        else:
+            if data.decode(&#39;utf-8&#39;) == &#39;Yup&#39;:
+                ip_address = addr[0]
+                break
+
+    sock.close()
+    return ip_address
+
+def get_ip_address(domain_name):
+    &#39;&#39;&#39;
+    Retrieves the IP address associated with a domain name.
+
+    Args:
+        domain_name (str): The domain name to resolve.
+
+    Returns:
+        str: The IP address associated with the domain name, or None if resolution fails.
+
+    Example:
+        &gt;&gt;&gt; serv_addr = get_ip_address(&#39;theta&#39;)
+        &gt;&gt;&gt; print(serv_addr)
+        &#39;192.168.23.157&#39;
+
+    Description:
+        This function uses the socket.getaddrinfo() function to resolve the IP address
+        associated with the given domain name.
+
+        It attempts to resolve the domain name using the AF_INET address family, which
+        corresponds to IPv4 addresses. The first result from the getaddrinfo() call is
+        selected, and the IP address is extracted from it.
+    &#39;&#39;&#39;
+    try:
+        result = socket.getaddrinfo(domain_name, None, socket.AF_INET)        
+        ip_address = result[0][4][0]
+        
+        return ip_address
+    except socket.gaierror:
+        print(&#34;Failed to resolve IP address for the domain:&#34;, domain_name)
+        return None
+
+def join_multicast_group(client_socket):
+    &#39;&#39;&#39;
+    Joins a multicast group chat using the provided client socket.
+
+    Args:
+        client_socket (socket): The client socket.
+
+    Returns:
+        int: An integer indicating the success of joining the group (0 for failure, 1 for success).
+
+    Example:
+        &gt;&gt;&gt; join_multicast_group(client_socket)
+
+    Description:
+        This function sends a join multicast group request to the server by sending a message
+        with the format &#34;[JOIN_MC_GROUP]:&lt;multicast_group&gt;&#34;. It expects a response from the server.
+
+        If the response starts with &#34;[NEW_GROUP]&#34;, it indicates that a new private group chat
+        has been created. The function prints a message with the secret code to join the group
+        and sets the success variable to 1.
+    &#39;&#39;&#39;
+    success = 0
+    msg = &#34;[JOIN_MC_GROUP]:&#34; + args.multicast_group
+    client_socket.sendall(msg.encode(&#39;utf-8&#39;))
+    
+    resp = client_socket.recv(BUFF).decode(&#39;utf-8&#39;)
+    if resp.startswith(&#34;[NEW_GROUP]&#34;):
+        print(f&#34;A new private group chat has been created! The secret code to join this group is: {resp.split(&#39;:&#39;)[1]}&#34;)
+        success = 1
+    
+    elif resp.startswith(&#34;[CODE_REQUIRED]&#34;):
+        secret_code = input(&#34;A secret code to join this group is required: &#34;)
+        client_socket.sendall(secret_code.encode(&#39;utf-8&#39;))
+
+        resp2 =  client_socket.recv(BUFF).decode(&#39;utf-8&#39;)
+
+        if resp2 == &#34;[CORRECT_CODE]&#34;:
+            print(&#34;You have successfully joined the private group chat&#34;)
+            success = 1
+        else:
+            print(&#34;Wrong secret code! Quitting...&#34;)
+    
+    return success
+
+def udp_chat(udp_client_socket, multicast_group, username):
+    &#39;&#39;&#39;
+    Performs UDP chat communication with a multicast group.
+
+    Args:
+        udp_client_socket (socket): The UDP client socket.
+        multicast_group (str): The multicast group address.
+        username (str): The username for the chat.
+
+    Returns:
+        None
+
+    Example:
+        &gt;&gt;&gt; udp_chat(udp_client_socket, args.multicast_group, username)
+
+    Description:
+        This function sets up the UDP client socket for multicast communication by
+        configuring the necessary socket options and binding to the specified port.
+        It joins the multicast group using the IP_ADD_MEMBERSHIP option.
+    &#39;&#39;&#39;
+    udp_client_socket.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, 1)
+    udp_client_socket.bind((&#39;&#39;, UDP_CHAT_PORT))
+    mreq = struct.pack(&#34;4sl&#34;, socket.inet_aton(multicast_group), socket.INADDR_ANY)
+    udp_client_socket.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)
+
+    # Start a thread to receive messages from the server
+    receive_thread = threading.Thread(target=receive_multicast_msg, args=(udp_client_socket, username))
+    receive_thread.start()
+
+    while True:
+        try:
+            # Read user input
+            message = input()
+            message = f&#34;{username}: &#34; + message
+
+            # Becasue input() is blocking function it willl always return bad FD after closed connection. It may be overcome by using input() in threading functions.
+            if udp_client_socket.fileno() &lt; 0:
+                break
+
+            # Send the message to the server
+            udp_client_socket.sendto(message.encode(&#39;utf-8&#39;), (multicast_group, UDP_CHAT_PORT))
+        except KeyboardInterrupt:
+            break
+    
+    # Close the client socket
+    udp_client_socket.close()
+
+def receive_multicast_msg(udp_client_socket, username):
+    &#39;&#39;&#39;
+    Receives and prints multicast messages from the server using the provided UDP client socket.
+
+    Args:
+        udp_client_socket (socket): The UDP client socket.
+        username (str): The username for the chat.
+
+    Returns:
+        None
+
+    Example:
+        &gt;&gt;&gt; receive_thread = threading.Thread(target=receive_multicast_msg, args=(udp_client_socket, username))
+        &gt;&gt;&gt; receive_thread.start()
+
+    Description:
+        This function continuously receives messages from the server using the recvfrom() function
+        and decodes them as UTF-8 strings.
+
+        If the received message is empty, it indicates that the connection is closed, and the loop is broken.
+
+        If the received message is &#34;[SERVER_SHUTDOWN]&#34;, it indicates that the server is shutting down.
+        The function prints the message and prompts the user to press enter to close the program. The loop is then broken.
+    &#39;&#39;&#39;
+    prev = &#34;&#34;
+    while True:
+        try:
+            data, addr = udp_client_socket.recvfrom(BUFF)
+            data = data.decode(&#39;utf-8&#39;)
+            
+            if not data:
+                break
+            
+            if data == &#39;[SERVER_SHUTDOWN]&#39;:
+                print(data, &#34;\nPress enter to close the program&#34;)
+                break
+            
+            if data.split(&#34;:&#34;)[0] != username and data != prev:  # Simple self-duplicates and other duplicates prevention
+                print(data)
+                prev = data
+
+        except Exception as e:
+            print(f&#34;Error: {e}&#34;)
+            break
+
+    udp_client_socket.close()
+    sys.exit(0)
+
+
+def tcp_chat(client_socket, username):
+    &#39;&#39;&#39;
+    Performs a TCP chat between the client and the server using the provided client socket.
+
+    Args:
+        client_socket (socket): The client socket connected to the server.
+        username (str): The username for the chat.
+
+    Returns:
+        None
+
+    Example:
+        &gt;&gt;&gt; tcp_chat(client_socket, username)
+    &#39;&#39;&#39;
+    # Start a thread to receive messages from the server
+    receive_thread = threading.Thread(target=receive_messages, args=(client_socket,))
+    receive_thread.start()
+
+    while True:
+        try:
+            # Read user input
+            message = input()
+            message = f&#34;{username}: &#34; + message
+
+            # Becasue input() is blocking function it willl always return bad FD after closed connection. It may be overcome by using input() in threading functions.
+            if client_socket.fileno() &lt; 0:
+                break
+
+            # Send the message to the server
+            client_socket.sendall(message.encode(&#39;utf-8&#39;))
+        except KeyboardInterrupt:
+            break
+    
+    # Close the client socket
+    client_socket.close()
+
+def receive_messages(client_socket):
+    &#39;&#39;&#39;
+    Receives and prints messages from the server using the provided TCP client socket.
+
+    Args:
+        client_socket (socket): The TCP client socket.
+        username (str): The username for the chat.
+
+    Returns:
+        None
+
+    Example:
+        &gt;&gt;&gt; receive_thread = threading.Thread(target=receive_messages, args=(client_socket, username))
+        &gt;&gt;&gt; receive_thread.start()
+
+    Description:
+        This function continuously receives messages from the server using the recvfrom() function
+        and decodes them as UTF-8 strings.
+
+        If the received message is empty, it indicates that the connection is closed, and the loop is broken.
+
+        If the received message is &#34;[SERVER_SHUTDOWN]&#34;, it indicates that the server is shutting down.
+        The function prints the message and prompts the user to press enter to close the program. The loop is then broken.
+    &#39;&#39;&#39;
+    while True:
+        try:
+            data = client_socket.recv(BUFF).decode(&#39;utf-8&#39;)
+            if not data:
+                break
+            
+            if data == &#39;[SERVER_SHUTDOWN]&#39;:
+                print(data, &#34;\nPress enter to close the program&#34;)
+                break
+
+            print(data)
+        except Exception as e:
+            print(f&#34;Error: {e}&#34;)
+            break
+
+    client_socket.close()
+    sys.exit(0)
+
+def start_cli(args):
+    &#39;&#39;&#39;
+    Starts the command-line interface (CLI) for the chat client.
+
+    Args:
+        args (argparse.Namespace): Command-line arguments parsed using argparse.
+
+    Returns:
+        None
+
+    Example:
+        &gt;&gt;&gt; start_cli(args)
+
+    Description:
+        This function sets up the client&#39;s TCP and UDP sockets based on the provided command-line arguments.
+
+        If the `dns` argument is provided, it uses the get_ip_address() function to find the server&#39;s IP address using DNS.
+
+        If the `mdns` argument is provided, it uses the get_server_ip_mdns() function to find the server&#39;s IP address using multicast (custom mDNS).
+
+        If neither `dns` nor `mdns` is provided, it uses the `addr` argument as the server&#39;s IP address.
+
+        The user is prompted to enter their username.
+
+        A TCP connection is established with the server using the server&#39;s IP address and port 4001.
+
+        A signal handler is set up to handle termination (Ctrl+C) using the signal_handler() function.
+
+        If the `multicast_group` argument is provided, the client joins the multicast group using the join_multicast_group() function.
+        If successful, the client engages in a UDP chat using the udp_chat() function.
+
+        If the `multicast_group` argument is not provided, the client engages in a TCP chat using the tcp_chat() function.
+
+        Finally, the program exits gracefully.
+    &#39;&#39;&#39;
+    # Create a TCP socket
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+    # Create a UDP socket
+    udp_client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+
+    # Find server using DNS api
+    if args.dns:
+        ip_address = get_ip_address(str(args.dns))
+        if ip_address == None:
+            sys.exit(0)
+        print(&#34;Got IP from getaddrinfo():&#34;, ip_address)
+    
+    #Find server using multicast (custom mDNS)
+    elif args.mdns:
+        ip_address = get_server_ip_mdns(args.mdns)
+        if ip_address == None:
+            sys.exit(0)
+        print(&#34;Got IP from mDNS:&#34;, ip_address)
+    else:
+        ip_address = args.addr
+    
+    username = input(&#34;Your username: &#34;)
+
+    # Connect to the server 
+    server_address = (ip_address, 4001)
+    client_socket.connect(server_address)
+    print(&#34;Connected to the server.&#34;)
+    
+    # Signal handler for termination
+    signal_handler_partial = partial(signal_handler, client_socket=client_socket, udp_client_socket=udp_client_socket)
+    signal.signal(signal.SIGINT, signal_handler_partial)
+
+    # Joining multicast group
+    if args.multicast_group:
+        if not ipaddress.ip_address(args.multicast_group).is_multicast:
+            print(&#34;Invalid multicast address&#34;)
+            sys.exit(0)
+        
+        if join_multicast_group(client_socket):
+            udp_chat(udp_client_socket, args.multicast_group, username)
+        
+    else:
+        tcp_chat(client_socket, username)
+    
+    sys.exit(0)
+
+if __name__ == &#39;__main__&#39;:
+    parser = argparse.ArgumentParser(description=&#34;Choose method of connection and sending messages.&#34;)
+    parser.add_argument(&#39;-a&#39;,&#39;--addr&#39;, help=&#34;Server IP address.&#34;)
+    parser.add_argument(&#39;-d&#39;,&#39;--dns&#39;, help=&#34;Use DNS query to find server&#39;s IP address.&#34;)
+    parser.add_argument(&#39;-m&#39;, &#39;--mdns&#39;, help=&#34;Use custom mDNS to find server&#39;s IP address [Name is optional, only if server requires]&#34;, nargs=&#39;?&#39;, action=&#39;store&#39;, const=&#39;chat_server&#39;)
+    parser.add_argument(&#39;-g&#39;, &#39;--multicast_group&#39;, help=&#34;Join a selected multicast group.&#34;)
+    args = parser.parse_args()
+    print(args)
+    start_cli(args)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="cli.get_ip_address"><code class="name flex">
+<span>def <span class="ident">get_ip_address</span></span>(<span>domain_name)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieves the IP address associated with a domain name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>domain_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The domain name to resolve.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>The IP address associated with the domain name, or None if resolution fails.</dd>
+</dl>
+<h2 id="example">Example</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; serv_addr = get_ip_address('theta')
+&gt;&gt;&gt; print(serv_addr)
+'192.168.23.157'
+</code></pre>
+<h2 id="description">Description</h2>
+<p>This function uses the socket.getaddrinfo() function to resolve the IP address
+associated with the given domain name.</p>
+<p>It attempts to resolve the domain name using the AF_INET address family, which
+corresponds to IPv4 addresses. The first result from the getaddrinfo() call is
+selected, and the IP address is extracted from it.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_ip_address(domain_name):
+    &#39;&#39;&#39;
+    Retrieves the IP address associated with a domain name.
+
+    Args:
+        domain_name (str): The domain name to resolve.
+
+    Returns:
+        str: The IP address associated with the domain name, or None if resolution fails.
+
+    Example:
+        &gt;&gt;&gt; serv_addr = get_ip_address(&#39;theta&#39;)
+        &gt;&gt;&gt; print(serv_addr)
+        &#39;192.168.23.157&#39;
+
+    Description:
+        This function uses the socket.getaddrinfo() function to resolve the IP address
+        associated with the given domain name.
+
+        It attempts to resolve the domain name using the AF_INET address family, which
+        corresponds to IPv4 addresses. The first result from the getaddrinfo() call is
+        selected, and the IP address is extracted from it.
+    &#39;&#39;&#39;
+    try:
+        result = socket.getaddrinfo(domain_name, None, socket.AF_INET)        
+        ip_address = result[0][4][0]
+        
+        return ip_address
+    except socket.gaierror:
+        print(&#34;Failed to resolve IP address for the domain:&#34;, domain_name)
+        return None</code></pre>
+</details>
+</dd>
+<dt id="cli.get_server_ip_mdns"><code class="name flex">
+<span>def <span class="ident">get_server_ip_mdns</span></span>(<span>server_name)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieves the IP address of the server using multicast DNS (mDNS) discovery.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>server_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the server to discover.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>The IP address of the discovered server, or None if not found.</dd>
+</dl>
+<h2 id="example">Example</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; serv_addr = get_server_ip_mdns('chat_server')
+&gt;&gt;&gt; print(serv_addr)
+'192.168.23.157'
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_server_ip_mdns(server_name):
+    &#39;&#39;&#39;
+    Retrieves the IP address of the server using multicast DNS (mDNS) discovery.
+
+    Args:
+        server_name (str): The name of the server to discover.
+
+    Returns:
+        str: The IP address of the discovered server, or None if not found.
+
+    Example:
+        &gt;&gt;&gt; serv_addr = get_server_ip_mdns(&#39;chat_server&#39;)
+        &gt;&gt;&gt; print(serv_addr)
+        &#39;192.168.23.157&#39;
+    &#39;&#39;&#39;
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+    sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, 2)
+
+    sock.sendto(f&#34;Hi, are you {server_name}?&#34;.encode(&#39;utf-8&#39;), (MDNS_ADDR, MDNS_PORT))
+
+    sock.settimeout(10)
+    ip_address = None
+
+    while True:
+        try:
+            data, addr = sock.recvfrom(BUFF)
+        except socket.timeout:
+            print(&#34;Failed to find the server via mulitcast&#34;)
+            break
+        else:
+            if data.decode(&#39;utf-8&#39;) == &#39;Yup&#39;:
+                ip_address = addr[0]
+                break
+
+    sock.close()
+    return ip_address</code></pre>
+</details>
+</dd>
+<dt id="cli.join_multicast_group"><code class="name flex">
+<span>def <span class="ident">join_multicast_group</span></span>(<span>client_socket)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Joins a multicast group chat using the provided client socket.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>client_socket</code></strong> :&ensp;<code>socket</code></dt>
+<dd>The client socket.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>An integer indicating the success of joining the group (0 for failure, 1 for success).</dd>
+</dl>
+<h2 id="example">Example</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; join_multicast_group(client_socket)
+</code></pre>
+<h2 id="description">Description</h2>
+<p>This function sends a join multicast group request to the server by sending a message
+with the format "[JOIN_MC_GROUP]:<multicast_group>". It expects a response from the server.</p>
+<p>If the response starts with "[NEW_GROUP]", it indicates that a new private group chat
+has been created. The function prints a message with the secret code to join the group
+and sets the success variable to 1.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def join_multicast_group(client_socket):
+    &#39;&#39;&#39;
+    Joins a multicast group chat using the provided client socket.
+
+    Args:
+        client_socket (socket): The client socket.
+
+    Returns:
+        int: An integer indicating the success of joining the group (0 for failure, 1 for success).
+
+    Example:
+        &gt;&gt;&gt; join_multicast_group(client_socket)
+
+    Description:
+        This function sends a join multicast group request to the server by sending a message
+        with the format &#34;[JOIN_MC_GROUP]:&lt;multicast_group&gt;&#34;. It expects a response from the server.
+
+        If the response starts with &#34;[NEW_GROUP]&#34;, it indicates that a new private group chat
+        has been created. The function prints a message with the secret code to join the group
+        and sets the success variable to 1.
+    &#39;&#39;&#39;
+    success = 0
+    msg = &#34;[JOIN_MC_GROUP]:&#34; + args.multicast_group
+    client_socket.sendall(msg.encode(&#39;utf-8&#39;))
+    
+    resp = client_socket.recv(BUFF).decode(&#39;utf-8&#39;)
+    if resp.startswith(&#34;[NEW_GROUP]&#34;):
+        print(f&#34;A new private group chat has been created! The secret code to join this group is: {resp.split(&#39;:&#39;)[1]}&#34;)
+        success = 1
+    
+    elif resp.startswith(&#34;[CODE_REQUIRED]&#34;):
+        secret_code = input(&#34;A secret code to join this group is required: &#34;)
+        client_socket.sendall(secret_code.encode(&#39;utf-8&#39;))
+
+        resp2 =  client_socket.recv(BUFF).decode(&#39;utf-8&#39;)
+
+        if resp2 == &#34;[CORRECT_CODE]&#34;:
+            print(&#34;You have successfully joined the private group chat&#34;)
+            success = 1
+        else:
+            print(&#34;Wrong secret code! Quitting...&#34;)
+    
+    return success</code></pre>
+</details>
+</dd>
+<dt id="cli.receive_messages"><code class="name flex">
+<span>def <span class="ident">receive_messages</span></span>(<span>client_socket)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Receives and prints messages from the server using the provided TCP client socket.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>client_socket</code></strong> :&ensp;<code>socket</code></dt>
+<dd>The TCP client socket.</dd>
+<dt><strong><code>username</code></strong> :&ensp;<code>str</code></dt>
+<dd>The username for the chat.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>None</p>
+<h2 id="example">Example</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; receive_thread = threading.Thread(target=receive_messages, args=(client_socket, username))
+&gt;&gt;&gt; receive_thread.start()
+</code></pre>
+<h2 id="description">Description</h2>
+<p>This function continuously receives messages from the server using the recvfrom() function
+and decodes them as UTF-8 strings.</p>
+<p>If the received message is empty, it indicates that the connection is closed, and the loop is broken.</p>
+<p>If the received message is "[SERVER_SHUTDOWN]", it indicates that the server is shutting down.
+The function prints the message and prompts the user to press enter to close the program. The loop is then broken.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def receive_messages(client_socket):
+    &#39;&#39;&#39;
+    Receives and prints messages from the server using the provided TCP client socket.
+
+    Args:
+        client_socket (socket): The TCP client socket.
+        username (str): The username for the chat.
+
+    Returns:
+        None
+
+    Example:
+        &gt;&gt;&gt; receive_thread = threading.Thread(target=receive_messages, args=(client_socket, username))
+        &gt;&gt;&gt; receive_thread.start()
+
+    Description:
+        This function continuously receives messages from the server using the recvfrom() function
+        and decodes them as UTF-8 strings.
+
+        If the received message is empty, it indicates that the connection is closed, and the loop is broken.
+
+        If the received message is &#34;[SERVER_SHUTDOWN]&#34;, it indicates that the server is shutting down.
+        The function prints the message and prompts the user to press enter to close the program. The loop is then broken.
+    &#39;&#39;&#39;
+    while True:
+        try:
+            data = client_socket.recv(BUFF).decode(&#39;utf-8&#39;)
+            if not data:
+                break
+            
+            if data == &#39;[SERVER_SHUTDOWN]&#39;:
+                print(data, &#34;\nPress enter to close the program&#34;)
+                break
+
+            print(data)
+        except Exception as e:
+            print(f&#34;Error: {e}&#34;)
+            break
+
+    client_socket.close()
+    sys.exit(0)</code></pre>
+</details>
+</dd>
+<dt id="cli.receive_multicast_msg"><code class="name flex">
+<span>def <span class="ident">receive_multicast_msg</span></span>(<span>udp_client_socket, username)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Receives and prints multicast messages from the server using the provided UDP client socket.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>udp_client_socket</code></strong> :&ensp;<code>socket</code></dt>
+<dd>The UDP client socket.</dd>
+<dt><strong><code>username</code></strong> :&ensp;<code>str</code></dt>
+<dd>The username for the chat.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>None</p>
+<h2 id="example">Example</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; receive_thread = threading.Thread(target=receive_multicast_msg, args=(udp_client_socket, username))
+&gt;&gt;&gt; receive_thread.start()
+</code></pre>
+<h2 id="description">Description</h2>
+<p>This function continuously receives messages from the server using the recvfrom() function
+and decodes them as UTF-8 strings.</p>
+<p>If the received message is empty, it indicates that the connection is closed, and the loop is broken.</p>
+<p>If the received message is "[SERVER_SHUTDOWN]", it indicates that the server is shutting down.
+The function prints the message and prompts the user to press enter to close the program. The loop is then broken.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def receive_multicast_msg(udp_client_socket, username):
+    &#39;&#39;&#39;
+    Receives and prints multicast messages from the server using the provided UDP client socket.
+
+    Args:
+        udp_client_socket (socket): The UDP client socket.
+        username (str): The username for the chat.
+
+    Returns:
+        None
+
+    Example:
+        &gt;&gt;&gt; receive_thread = threading.Thread(target=receive_multicast_msg, args=(udp_client_socket, username))
+        &gt;&gt;&gt; receive_thread.start()
+
+    Description:
+        This function continuously receives messages from the server using the recvfrom() function
+        and decodes them as UTF-8 strings.
+
+        If the received message is empty, it indicates that the connection is closed, and the loop is broken.
+
+        If the received message is &#34;[SERVER_SHUTDOWN]&#34;, it indicates that the server is shutting down.
+        The function prints the message and prompts the user to press enter to close the program. The loop is then broken.
+    &#39;&#39;&#39;
+    prev = &#34;&#34;
+    while True:
+        try:
+            data, addr = udp_client_socket.recvfrom(BUFF)
+            data = data.decode(&#39;utf-8&#39;)
+            
+            if not data:
+                break
+            
+            if data == &#39;[SERVER_SHUTDOWN]&#39;:
+                print(data, &#34;\nPress enter to close the program&#34;)
+                break
+            
+            if data.split(&#34;:&#34;)[0] != username and data != prev:  # Simple self-duplicates and other duplicates prevention
+                print(data)
+                prev = data
+
+        except Exception as e:
+            print(f&#34;Error: {e}&#34;)
+            break
+
+    udp_client_socket.close()
+    sys.exit(0)</code></pre>
+</details>
+</dd>
+<dt id="cli.signal_handler"><code class="name flex">
+<span>def <span class="ident">signal_handler</span></span>(<span>signal, frame, client_socket, udp_client_socket)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Handles the termination signal and performs cleanup operations for the client. Used with <em>partial</em> module</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>signal</code></strong> :&ensp;<code>int</code></dt>
+<dd>The signal number.</dd>
+<dt><strong><code>frame</code></strong> :&ensp;<code>frame</code></dt>
+<dd>The current stack frame.</dd>
+<dt><strong><code>client_socket</code></strong> :&ensp;<code>socket</code></dt>
+<dd>The TCP client socket.</dd>
+<dt><strong><code>udp_client_socket</code></strong> :&ensp;<code>socket</code></dt>
+<dd>The UDP client socket.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>None</p>
+<h2 id="example">Example</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; signal_handler_partial = partial(signal_handler, client_socket=client_socket, udp_client_socket=udp_client_socket)
+&gt;&gt;&gt; signal.signal(signal.SIGINT, signal_handler_partial)
+</code></pre>
+<h2 id="description">Description</h2>
+<p>This function is invoked when a termination signal is received, and it performs the
+necessary cleanup operations for the client.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def signal_handler(signal, frame, client_socket, udp_client_socket):
+    &#39;&#39;&#39;
+    Handles the termination signal and performs cleanup operations for the client. Used with *partial* module
+
+    Args:
+        signal (int): The signal number.
+        frame (frame): The current stack frame.
+        client_socket (socket): The TCP client socket.
+        udp_client_socket (socket): The UDP client socket.
+
+    Returns:
+        None
+
+    Example:
+        &gt;&gt;&gt; signal_handler_partial = partial(signal_handler, client_socket=client_socket, udp_client_socket=udp_client_socket)
+        &gt;&gt;&gt; signal.signal(signal.SIGINT, signal_handler_partial)
+
+    Description:
+        This function is invoked when a termination signal is received, and it performs the
+        necessary cleanup operations for the client.
+    &#39;&#39;&#39;
+    print(&#34;Closing client...&#34;)
+
+    try:
+        udp_client_socket.shutdown(socket.SHUT_RD)
+    except OSError:
+        udp_client_socket.close()
+
+    try:
+        client_socket.sendall(&#39;[CLIENT_SHUTDOWN]&#39;.encode(&#39;utf-8&#39;))
+    except OSError as e:
+        if e.errno == 9:
+            sys.exit()
+        else:
+            print(f&#34;Error: {e}&#34;)
+
+    client_socket.close()
+    sys.exit(0)</code></pre>
+</details>
+</dd>
+<dt id="cli.start_cli"><code class="name flex">
+<span>def <span class="ident">start_cli</span></span>(<span>args)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Starts the command-line interface (CLI) for the chat client.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>args</code></strong> :&ensp;<code>argparse.Namespace</code></dt>
+<dd>Command-line arguments parsed using argparse.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>None</p>
+<h2 id="example">Example</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; start_cli(args)
+</code></pre>
+<h2 id="description">Description</h2>
+<p>This function sets up the client's TCP and UDP sockets based on the provided command-line arguments.</p>
+<p>If the <code>dns</code> argument is provided, it uses the get_ip_address() function to find the server's IP address using DNS.</p>
+<p>If the <code>mdns</code> argument is provided, it uses the get_server_ip_mdns() function to find the server's IP address using multicast (custom mDNS).</p>
+<p>If neither <code>dns</code> nor <code>mdns</code> is provided, it uses the <code>addr</code> argument as the server's IP address.</p>
+<p>The user is prompted to enter their username.</p>
+<p>A TCP connection is established with the server using the server's IP address and port 4001.</p>
+<p>A signal handler is set up to handle termination (Ctrl+C) using the signal_handler() function.</p>
+<p>If the <code>multicast_group</code> argument is provided, the client joins the multicast group using the join_multicast_group() function.
+If successful, the client engages in a UDP chat using the udp_chat() function.</p>
+<p>If the <code>multicast_group</code> argument is not provided, the client engages in a TCP chat using the tcp_chat() function.</p>
+<p>Finally, the program exits gracefully.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def start_cli(args):
+    &#39;&#39;&#39;
+    Starts the command-line interface (CLI) for the chat client.
+
+    Args:
+        args (argparse.Namespace): Command-line arguments parsed using argparse.
+
+    Returns:
+        None
+
+    Example:
+        &gt;&gt;&gt; start_cli(args)
+
+    Description:
+        This function sets up the client&#39;s TCP and UDP sockets based on the provided command-line arguments.
+
+        If the `dns` argument is provided, it uses the get_ip_address() function to find the server&#39;s IP address using DNS.
+
+        If the `mdns` argument is provided, it uses the get_server_ip_mdns() function to find the server&#39;s IP address using multicast (custom mDNS).
+
+        If neither `dns` nor `mdns` is provided, it uses the `addr` argument as the server&#39;s IP address.
+
+        The user is prompted to enter their username.
+
+        A TCP connection is established with the server using the server&#39;s IP address and port 4001.
+
+        A signal handler is set up to handle termination (Ctrl+C) using the signal_handler() function.
+
+        If the `multicast_group` argument is provided, the client joins the multicast group using the join_multicast_group() function.
+        If successful, the client engages in a UDP chat using the udp_chat() function.
+
+        If the `multicast_group` argument is not provided, the client engages in a TCP chat using the tcp_chat() function.
+
+        Finally, the program exits gracefully.
+    &#39;&#39;&#39;
+    # Create a TCP socket
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+    # Create a UDP socket
+    udp_client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+
+    # Find server using DNS api
+    if args.dns:
+        ip_address = get_ip_address(str(args.dns))
+        if ip_address == None:
+            sys.exit(0)
+        print(&#34;Got IP from getaddrinfo():&#34;, ip_address)
+    
+    #Find server using multicast (custom mDNS)
+    elif args.mdns:
+        ip_address = get_server_ip_mdns(args.mdns)
+        if ip_address == None:
+            sys.exit(0)
+        print(&#34;Got IP from mDNS:&#34;, ip_address)
+    else:
+        ip_address = args.addr
+    
+    username = input(&#34;Your username: &#34;)
+
+    # Connect to the server 
+    server_address = (ip_address, 4001)
+    client_socket.connect(server_address)
+    print(&#34;Connected to the server.&#34;)
+    
+    # Signal handler for termination
+    signal_handler_partial = partial(signal_handler, client_socket=client_socket, udp_client_socket=udp_client_socket)
+    signal.signal(signal.SIGINT, signal_handler_partial)
+
+    # Joining multicast group
+    if args.multicast_group:
+        if not ipaddress.ip_address(args.multicast_group).is_multicast:
+            print(&#34;Invalid multicast address&#34;)
+            sys.exit(0)
+        
+        if join_multicast_group(client_socket):
+            udp_chat(udp_client_socket, args.multicast_group, username)
+        
+    else:
+        tcp_chat(client_socket, username)
+    
+    sys.exit(0)</code></pre>
+</details>
+</dd>
+<dt id="cli.tcp_chat"><code class="name flex">
+<span>def <span class="ident">tcp_chat</span></span>(<span>client_socket, username)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Performs a TCP chat between the client and the server using the provided client socket.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>client_socket</code></strong> :&ensp;<code>socket</code></dt>
+<dd>The client socket connected to the server.</dd>
+<dt><strong><code>username</code></strong> :&ensp;<code>str</code></dt>
+<dd>The username for the chat.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>None</p>
+<h2 id="example">Example</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; tcp_chat(client_socket, username)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def tcp_chat(client_socket, username):
+    &#39;&#39;&#39;
+    Performs a TCP chat between the client and the server using the provided client socket.
+
+    Args:
+        client_socket (socket): The client socket connected to the server.
+        username (str): The username for the chat.
+
+    Returns:
+        None
+
+    Example:
+        &gt;&gt;&gt; tcp_chat(client_socket, username)
+    &#39;&#39;&#39;
+    # Start a thread to receive messages from the server
+    receive_thread = threading.Thread(target=receive_messages, args=(client_socket,))
+    receive_thread.start()
+
+    while True:
+        try:
+            # Read user input
+            message = input()
+            message = f&#34;{username}: &#34; + message
+
+            # Becasue input() is blocking function it willl always return bad FD after closed connection. It may be overcome by using input() in threading functions.
+            if client_socket.fileno() &lt; 0:
+                break
+
+            # Send the message to the server
+            client_socket.sendall(message.encode(&#39;utf-8&#39;))
+        except KeyboardInterrupt:
+            break
+    
+    # Close the client socket
+    client_socket.close()</code></pre>
+</details>
+</dd>
+<dt id="cli.udp_chat"><code class="name flex">
+<span>def <span class="ident">udp_chat</span></span>(<span>udp_client_socket, multicast_group, username)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Performs UDP chat communication with a multicast group.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>udp_client_socket</code></strong> :&ensp;<code>socket</code></dt>
+<dd>The UDP client socket.</dd>
+<dt><strong><code>multicast_group</code></strong> :&ensp;<code>str</code></dt>
+<dd>The multicast group address.</dd>
+<dt><strong><code>username</code></strong> :&ensp;<code>str</code></dt>
+<dd>The username for the chat.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>None</p>
+<h2 id="example">Example</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; udp_chat(udp_client_socket, args.multicast_group, username)
+</code></pre>
+<h2 id="description">Description</h2>
+<p>This function sets up the UDP client socket for multicast communication by
+configuring the necessary socket options and binding to the specified port.
+It joins the multicast group using the IP_ADD_MEMBERSHIP option.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def udp_chat(udp_client_socket, multicast_group, username):
+    &#39;&#39;&#39;
+    Performs UDP chat communication with a multicast group.
+
+    Args:
+        udp_client_socket (socket): The UDP client socket.
+        multicast_group (str): The multicast group address.
+        username (str): The username for the chat.
+
+    Returns:
+        None
+
+    Example:
+        &gt;&gt;&gt; udp_chat(udp_client_socket, args.multicast_group, username)
+
+    Description:
+        This function sets up the UDP client socket for multicast communication by
+        configuring the necessary socket options and binding to the specified port.
+        It joins the multicast group using the IP_ADD_MEMBERSHIP option.
+    &#39;&#39;&#39;
+    udp_client_socket.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, 1)
+    udp_client_socket.bind((&#39;&#39;, UDP_CHAT_PORT))
+    mreq = struct.pack(&#34;4sl&#34;, socket.inet_aton(multicast_group), socket.INADDR_ANY)
+    udp_client_socket.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)
+
+    # Start a thread to receive messages from the server
+    receive_thread = threading.Thread(target=receive_multicast_msg, args=(udp_client_socket, username))
+    receive_thread.start()
+
+    while True:
+        try:
+            # Read user input
+            message = input()
+            message = f&#34;{username}: &#34; + message
+
+            # Becasue input() is blocking function it willl always return bad FD after closed connection. It may be overcome by using input() in threading functions.
+            if udp_client_socket.fileno() &lt; 0:
+                break
+
+            # Send the message to the server
+            udp_client_socket.sendto(message.encode(&#39;utf-8&#39;), (multicast_group, UDP_CHAT_PORT))
+        except KeyboardInterrupt:
+            break
+    
+    # Close the client socket
+    udp_client_socket.close()</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="cli.get_ip_address" href="#cli.get_ip_address">get_ip_address</a></code></li>
+<li><code><a title="cli.get_server_ip_mdns" href="#cli.get_server_ip_mdns">get_server_ip_mdns</a></code></li>
+<li><code><a title="cli.join_multicast_group" href="#cli.join_multicast_group">join_multicast_group</a></code></li>
+<li><code><a title="cli.receive_messages" href="#cli.receive_messages">receive_messages</a></code></li>
+<li><code><a title="cli.receive_multicast_msg" href="#cli.receive_multicast_msg">receive_multicast_msg</a></code></li>
+<li><code><a title="cli.signal_handler" href="#cli.signal_handler">signal_handler</a></code></li>
+<li><code><a title="cli.start_cli" href="#cli.start_cli">start_cli</a></code></li>
+<li><code><a title="cli.tcp_chat" href="#cli.tcp_chat">tcp_chat</a></code></li>
+<li><code><a title="cli.udp_chat" href="#cli.udp_chat">udp_chat</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

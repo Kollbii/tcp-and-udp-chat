@@ -13,6 +13,26 @@ MDNS_PORT=5454
 MDNS_ADDR='224.0.0.251'
 
 def signal_handler(signal, frame, client_socket, udp_client_socket):
+    '''
+    Handles the termination signal and performs cleanup operations for the client. Used with *partial* module
+
+    Args:
+        signal (int): The signal number.
+        frame (frame): The current stack frame.
+        client_socket (socket): The TCP client socket.
+        udp_client_socket (socket): The UDP client socket.
+
+    Returns:
+        None
+
+    Example:
+        >>> signal_handler_partial = partial(signal_handler, client_socket=client_socket, udp_client_socket=udp_client_socket)
+        >>> signal.signal(signal.SIGINT, signal_handler_partial)
+
+    Description:
+        This function is invoked when a termination signal is received, and it performs the
+        necessary cleanup operations for the client.
+    '''
     print("Closing client...")
 
     try:
@@ -32,6 +52,20 @@ def signal_handler(signal, frame, client_socket, udp_client_socket):
     sys.exit(0)
 
 def get_server_ip_mdns(server_name):
+    '''
+    Retrieves the IP address of the server using multicast DNS (mDNS) discovery.
+
+    Args:
+        server_name (str): The name of the server to discover.
+
+    Returns:
+        str: The IP address of the discovered server, or None if not found.
+
+    Example:
+        >>> serv_addr = get_server_ip_mdns('chat_server')
+        >>> print(serv_addr)
+        '192.168.23.157'
+    '''
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
     sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, 2)
 
@@ -55,6 +89,28 @@ def get_server_ip_mdns(server_name):
     return ip_address
 
 def get_ip_address(domain_name):
+    '''
+    Retrieves the IP address associated with a domain name.
+
+    Args:
+        domain_name (str): The domain name to resolve.
+
+    Returns:
+        str: The IP address associated with the domain name, or None if resolution fails.
+
+    Example:
+        >>> serv_addr = get_ip_address('theta')
+        >>> print(serv_addr)
+        '192.168.23.157'
+
+    Description:
+        This function uses the socket.getaddrinfo() function to resolve the IP address
+        associated with the given domain name.
+
+        It attempts to resolve the domain name using the AF_INET address family, which
+        corresponds to IPv4 addresses. The first result from the getaddrinfo() call is
+        selected, and the IP address is extracted from it.
+    '''
     try:
         result = socket.getaddrinfo(domain_name, None, socket.AF_INET)        
         ip_address = result[0][4][0]
@@ -65,6 +121,26 @@ def get_ip_address(domain_name):
         return None
 
 def join_multicast_group(client_socket):
+    '''
+    Joins a multicast group chat using the provided client socket.
+
+    Args:
+        client_socket (socket): The client socket.
+
+    Returns:
+        int: An integer indicating the success of joining the group (0 for failure, 1 for success).
+
+    Example:
+        >>> join_multicast_group(client_socket)
+
+    Description:
+        This function sends a join multicast group request to the server by sending a message
+        with the format "[JOIN_MC_GROUP]:<multicast_group>". It expects a response from the server.
+
+        If the response starts with "[NEW_GROUP]", it indicates that a new private group chat
+        has been created. The function prints a message with the secret code to join the group
+        and sets the success variable to 1.
+    '''
     success = 0
     msg = "[JOIN_MC_GROUP]:" + args.multicast_group
     client_socket.sendall(msg.encode('utf-8'))
@@ -89,6 +165,25 @@ def join_multicast_group(client_socket):
     return success
 
 def udp_chat(udp_client_socket, multicast_group, username):
+    '''
+    Performs UDP chat communication with a multicast group.
+
+    Args:
+        udp_client_socket (socket): The UDP client socket.
+        multicast_group (str): The multicast group address.
+        username (str): The username for the chat.
+
+    Returns:
+        None
+
+    Example:
+        >>> udp_chat(udp_client_socket, args.multicast_group, username)
+
+    Description:
+        This function sets up the UDP client socket for multicast communication by
+        configuring the necessary socket options and binding to the specified port.
+        It joins the multicast group using the IP_ADD_MEMBERSHIP option.
+    '''
     udp_client_socket.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, 1)
     udp_client_socket.bind(('', UDP_CHAT_PORT))
     mreq = struct.pack("4sl", socket.inet_aton(multicast_group), socket.INADDR_ANY)
@@ -117,6 +212,29 @@ def udp_chat(udp_client_socket, multicast_group, username):
     udp_client_socket.close()
 
 def receive_multicast_msg(udp_client_socket, username):
+    '''
+    Receives and prints multicast messages from the server using the provided UDP client socket.
+
+    Args:
+        udp_client_socket (socket): The UDP client socket.
+        username (str): The username for the chat.
+
+    Returns:
+        None
+
+    Example:
+        >>> receive_thread = threading.Thread(target=receive_multicast_msg, args=(udp_client_socket, username))
+        >>> receive_thread.start()
+
+    Description:
+        This function continuously receives messages from the server using the recvfrom() function
+        and decodes them as UTF-8 strings.
+
+        If the received message is empty, it indicates that the connection is closed, and the loop is broken.
+
+        If the received message is "[SERVER_SHUTDOWN]", it indicates that the server is shutting down.
+        The function prints the message and prompts the user to press enter to close the program. The loop is then broken.
+    '''
     prev = ""
     while True:
         try:
@@ -143,6 +261,19 @@ def receive_multicast_msg(udp_client_socket, username):
 
 
 def tcp_chat(client_socket, username):
+    '''
+    Performs a TCP chat between the client and the server using the provided client socket.
+
+    Args:
+        client_socket (socket): The client socket connected to the server.
+        username (str): The username for the chat.
+
+    Returns:
+        None
+
+    Example:
+        >>> tcp_chat(client_socket, username)
+    '''
     # Start a thread to receive messages from the server
     receive_thread = threading.Thread(target=receive_messages, args=(client_socket,))
     receive_thread.start()
@@ -166,6 +297,29 @@ def tcp_chat(client_socket, username):
     client_socket.close()
 
 def receive_messages(client_socket):
+    '''
+    Receives and prints messages from the server using the provided TCP client socket.
+
+    Args:
+        client_socket (socket): The TCP client socket.
+        username (str): The username for the chat.
+
+    Returns:
+        None
+
+    Example:
+        >>> receive_thread = threading.Thread(target=receive_messages, args=(client_socket, username))
+        >>> receive_thread.start()
+
+    Description:
+        This function continuously receives messages from the server using the recvfrom() function
+        and decodes them as UTF-8 strings.
+
+        If the received message is empty, it indicates that the connection is closed, and the loop is broken.
+
+        If the received message is "[SERVER_SHUTDOWN]", it indicates that the server is shutting down.
+        The function prints the message and prompts the user to press enter to close the program. The loop is then broken.
+    '''
     while True:
         try:
             data = client_socket.recv(BUFF).decode('utf-8')
@@ -185,6 +339,40 @@ def receive_messages(client_socket):
     sys.exit(0)
 
 def start_cli(args):
+    '''
+    Starts the command-line interface (CLI) for the chat client.
+
+    Args:
+        args (argparse.Namespace): Command-line arguments parsed using argparse.
+
+    Returns:
+        None
+
+    Example:
+        >>> start_cli(args)
+
+    Description:
+        This function sets up the client's TCP and UDP sockets based on the provided command-line arguments.
+
+        If the `dns` argument is provided, it uses the get_ip_address() function to find the server's IP address using DNS.
+
+        If the `mdns` argument is provided, it uses the get_server_ip_mdns() function to find the server's IP address using multicast (custom mDNS).
+
+        If neither `dns` nor `mdns` is provided, it uses the `addr` argument as the server's IP address.
+
+        The user is prompted to enter their username.
+
+        A TCP connection is established with the server using the server's IP address and port 4001.
+
+        A signal handler is set up to handle termination (Ctrl+C) using the signal_handler() function.
+
+        If the `multicast_group` argument is provided, the client joins the multicast group using the join_multicast_group() function.
+        If successful, the client engages in a UDP chat using the udp_chat() function.
+
+        If the `multicast_group` argument is not provided, the client engages in a TCP chat using the tcp_chat() function.
+
+        Finally, the program exits gracefully.
+    '''
     # Create a TCP socket
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 

@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>serv API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>serv</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import socket
+import threading
+import signal
+import sys
+import struct
+import random
+import argparse
+from functools import partial
+
+BUFF=1024
+UDP_CHAT_PORT=3434
+MDSCV_PORT=5454
+MDSCV_ADDR=&#39;224.0.0.251&#39;
+
+mc_groups = dict()
+clients = list()
+
+def signal_handler(signal, frame, server_socket, clients, mdns_socket):
+    &#39;&#39;&#39;
+    Handles signal. Used only with *partial* package.
+
+    Args:
+        server_socket: Server socket on which actions are performed.
+        clients: List of clients socket.
+        mdns_socket: Multicast socket for managing multicast group.
+    Returns:
+        none: Exits program with code 0
+
+    Example:
+        &gt;&gt;&gt; signal_handler_partial = partial(signal_handler, server_socket=server_socket, clients=clients, mdns_socket=mdns_sock)
+        &gt;&gt;&gt; signal.signal(signal.SIGINT, signal_handler_partial)
+    &#39;&#39;&#39;
+    print(&#34;Closing server...&#34;)
+
+    # Closing mDNS UDP socket
+    try:
+        mdns_socket.shutdown(socket.SHUT_RD)
+    except OSError:
+        mdns_socket.close()
+    
+    # Closing tcp client sockets
+    for client_socket in clients:
+        client_socket.sendall(&#34;[SERVER_SHUTDOWN]&#34;.encode(&#39;utf-8&#39;))
+        client_socket.close()
+        print(client_socket, &#34;[Server shutdown]&#34;)
+
+    udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+    udp_sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, 2)
+
+    # Closing multicasts groups + TCP clients sockets (used for multicast managing)
+    print(&#34;Deleting multicast groups...&#34;)
+    for mc_group in mc_groups.keys():
+        udp_sock.sendto(&#34;[SERVER_SHUTDOWN]&#34;.encode(&#39;utf-8&#39;), (mc_group, UDP_CHAT_PORT))
+        print(mc_group, &#34;[Server shutdown]&#34;)
+        
+        for client_socket in mc_groups[mc_group][1]:
+            try:
+                client_socket.shutdown(socket.SHUT_RD)
+            except Exception:
+                pass
+    
+    udp_sock.close()
+    server_socket.close()
+    sys.exit(0)
+
+def send_ip_address_mdns(mdns_sock, server_name):
+    &#39;&#39;&#39;
+    Sends IP addres when requested from client. Used with threading module.
+
+    Args:
+        mdns_sock: Multicast socket for managing multicast group.
+        server_name: Server name.
+    Returns:
+        none: None
+
+    Example:
+        &gt;&gt;&gt; mdns_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+        &gt;&gt;&gt; mdns_sock.bind((&#39;&#39;, 8484))
+        &gt;&gt;&gt; mdns_thread = threading.Thread(target=send_ip_address_mdns, args=(mdns_sock,))
+        &gt;&gt;&gt; mdns_thread.start()
+    &#39;&#39;&#39;
+    while True:
+        try:
+            data, address = mdns_sock.recvfrom(BUFF)
+
+            if address != None:
+                print(f&#34;mDNS query from: {str(address)}&#34;)
+            
+            if not data:
+                break
+            
+            if data.decode(&#39;utf-8&#39;) == f&#34;Hi, are you {server_name}?&#34;:               
+                mdns_sock.sendto(&#34;Yup&#34;.encode(), address)
+
+        except Exception as e:
+            print(f&#34;Error: {e}, MDNS&#34;)
+            break
+
+def manage_multicast_group(client_socket, client_address, mc_group):
+    &#39;&#39;&#39;
+    Manages multicast grops. First client to connect is given secret code to share with the others.
+
+    Args:
+        client_socket: Client socket.
+        client_address: Client address.
+        mc_group: Multicast group client wants to join.
+    Returns:
+        none: None
+
+    Example:
+        &gt;&gt;&gt; manage_multicast_group(client_socket, client_address, mc_group)
+    &#39;&#39;&#39;
+    if not mc_group in mc_groups.keys(): # First user - Adding multicast group, generating code
+        secret_code = &#34;&#34;.join([str(random.randint(0,9)) for _ in range(0,6)])
+        mc_groups[mc_group] = [secret_code, []]
+        mc_groups[mc_group][1].append(client_socket)
+        client_socket.sendall(f&#34;[NEW_GROUP]:{secret_code}&#34;.encode(&#39;utf-8&#39;))
+        print(client_address, f&#34;[Client switched to multicast group: {mc_group}]&#34;)
+
+    else: # The group exists - checking secret code
+        client_socket.sendall(&#34;[CODE_REQUIRED]&#34;.encode(&#39;utf-8&#39;))
+        code = client_socket.recv(BUFF).decode(&#39;utf-8&#39;)
+
+        if code == mc_groups[mc_group][0]:
+            client_socket.sendall(&#34;[CORRECT_CODE]&#34;.encode(&#39;utf-8&#39;))
+            mc_groups[mc_group][1].append(client_socket)
+            print(client_address, f&#34;[Client switched to multicast group: {mc_group}]&#34;)
+        else:
+            client_socket.sendall(&#34;[WRONG_CODE]&#34;.encode(&#39;utf-8&#39;))
+            print(client_socket, &#34;[Client shutdown]&#34;)
+    
+    while True: # Client shutdown
+        try:
+            data = client_socket.recv(BUFF).decode(&#39;utf-8&#39;)
+
+            if data == &#39;[CLIENT_SHUTDOWN]&#39;:
+                print(client_address, &#34;[Client shutdown]&#34;)
+                mc_groups[mc_group][1].remove(client_socket)
+                break
+            
+            if not data:
+                break
+
+        except Exception as e:
+            print(f&#34;Error: {e}&#34;)
+            break
+    
+    client_socket.close()
+
+def handle_client(client_socket, client_address):
+    &#39;&#39;&#39;
+    Handles and manages client connections.
+
+    Args:
+        client_socket (socket): The client socket object.
+        client_address (tuple): The client address (IP, port).
+    Returns:
+        None
+
+    Example:
+        &gt;&gt;&gt; handle_client(client_socket, client_address)
+
+    Description:
+        This function is responsible for handling and managing client connections.
+        It continuously receives data from the client socket, processes the data,
+        and sends it to other connected clients.
+
+        If the received data starts with &#34;[JOIN_MC_GROUP]&#34;, indicating a multicast request,
+        the function removes the client socket from the list of clients, extracts the multicast
+        group information, and calls the &#39;manage_multicast_group&#39; function.
+
+        If the received data is &#34;[CLIENT_SHUTDOWN]&#34;, the function prints a message indicating
+        that the client has shutdown, and breaks the loop to exit.
+    &#39;&#39;&#39;
+    while True:
+        try:
+            data = client_socket.recv(BUFF).decode(&#39;utf-8&#39;)
+            if not data:
+                break
+            
+            if data.startswith(&#34;[JOIN_MC_GROUP]&#34;): # Multicast request
+                clients.remove(client_socket)
+                mc_group = data.split(&#34;:&#34;)[1]
+                manage_multicast_group(client_socket, client_address, mc_group)
+                break
+                
+
+            if data == &#39;[CLIENT_SHUTDOWN]&#39;:
+                print(client_address, &#34;[Client shutdown]&#34;)
+                break
+
+            for client in clients:
+                if client != client_socket:
+                    client.sendall(data.encode(&#39;utf-8&#39;))
+        
+        except Exception as e:
+            print(f&#34;Error: {e}&#34;)
+            break
+        
+    client_socket.close()   
+    try:
+        clients.remove(client_socket)
+    except ValueError: # Client removed during joining multicast group
+        pass
+
+def start_serv():
+    &#39;&#39;&#39;
+    Starts server. Creates TCP and UDP socket. Starts threads for client handlers.
+    &#39;&#39;&#39;
+    # Create a TCP socket
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
+    # Create a UDP socket (for mDNS)
+    mdns_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+    mdns_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    mdns_sock.bind((&#39;&#39;, MDSCV_PORT))
+    mreq = struct.pack(&#34;4sl&#34;, socket.inet_aton(MDSCV_ADDR), socket.INADDR_ANY)
+    mdns_sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)
+
+    # Bind the socket to a specific address and port
+    server_address = (&#39;&#39;, 4001)
+    server_socket.bind(server_address)
+
+    # Listen for incoming connections
+    server_socket.listen(5)
+    print(&#34;Server started. Waiting for connections...&#34;)
+
+    # mDNS thread
+    if args.mdns:
+        mdns_thread = threading.Thread(target=send_ip_address_mdns, args=(mdns_sock, args.mdns))
+        mdns_thread.start()
+
+    # Signal handler for termination
+    signal_handler_partial = partial(signal_handler, server_socket=server_socket, clients=clients, mdns_socket=mdns_sock)
+    signal.signal(signal.SIGINT, signal_handler_partial)
+
+    while True:
+        try:
+            # Accept a new connection
+            client_socket, client_address = server_socket.accept()
+            print(f&#34;New connection from {client_address}&#34;)
+
+            clients.append(client_socket)
+
+            client_thread = threading.Thread(target=handle_client, args=(client_socket, client_address,))
+            client_thread.start()
+        except KeyboardInterrupt:
+            break
+
+    server_socket.close()
+
+
+if __name__ == &#39;__main__&#39;:
+    parser = argparse.ArgumentParser(description=&#34;Choose method of starting server.&#34;)
+    parser.add_argument(&#39;-m&#39;, &#39;--mdns&#39;, help=&#34;Enable mDNS discovery [Name is optional]&#34;, nargs=&#39;?&#39;, action=&#39;store&#39;, const=&#39;chat_server&#39;)
+    args = parser.parse_args()
+    print(args)
+    start_serv()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="serv.handle_client"><code class="name flex">
+<span>def <span class="ident">handle_client</span></span>(<span>client_socket, client_address)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Handles and manages client connections.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>client_socket</code></strong> :&ensp;<code>socket</code></dt>
+<dd>The client socket object.</dd>
+<dt><strong><code>client_address</code></strong> :&ensp;<code>tuple</code></dt>
+<dd>The client address (IP, port).</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>None</p>
+<h2 id="example">Example</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; handle_client(client_socket, client_address)
+</code></pre>
+<h2 id="description">Description</h2>
+<p>This function is responsible for handling and managing client connections.
+It continuously receives data from the client socket, processes the data,
+and sends it to other connected clients.</p>
+<p>If the received data starts with "[JOIN_MC_GROUP]", indicating a multicast request,
+the function removes the client socket from the list of clients, extracts the multicast
+group information, and calls the 'manage_multicast_group' function.</p>
+<p>If the received data is "[CLIENT_SHUTDOWN]", the function prints a message indicating
+that the client has shutdown, and breaks the loop to exit.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def handle_client(client_socket, client_address):
+    &#39;&#39;&#39;
+    Handles and manages client connections.
+
+    Args:
+        client_socket (socket): The client socket object.
+        client_address (tuple): The client address (IP, port).
+    Returns:
+        None
+
+    Example:
+        &gt;&gt;&gt; handle_client(client_socket, client_address)
+
+    Description:
+        This function is responsible for handling and managing client connections.
+        It continuously receives data from the client socket, processes the data,
+        and sends it to other connected clients.
+
+        If the received data starts with &#34;[JOIN_MC_GROUP]&#34;, indicating a multicast request,
+        the function removes the client socket from the list of clients, extracts the multicast
+        group information, and calls the &#39;manage_multicast_group&#39; function.
+
+        If the received data is &#34;[CLIENT_SHUTDOWN]&#34;, the function prints a message indicating
+        that the client has shutdown, and breaks the loop to exit.
+    &#39;&#39;&#39;
+    while True:
+        try:
+            data = client_socket.recv(BUFF).decode(&#39;utf-8&#39;)
+            if not data:
+                break
+            
+            if data.startswith(&#34;[JOIN_MC_GROUP]&#34;): # Multicast request
+                clients.remove(client_socket)
+                mc_group = data.split(&#34;:&#34;)[1]
+                manage_multicast_group(client_socket, client_address, mc_group)
+                break
+                
+
+            if data == &#39;[CLIENT_SHUTDOWN]&#39;:
+                print(client_address, &#34;[Client shutdown]&#34;)
+                break
+
+            for client in clients:
+                if client != client_socket:
+                    client.sendall(data.encode(&#39;utf-8&#39;))
+        
+        except Exception as e:
+            print(f&#34;Error: {e}&#34;)
+            break
+        
+    client_socket.close()   
+    try:
+        clients.remove(client_socket)
+    except ValueError: # Client removed during joining multicast group
+        pass</code></pre>
+</details>
+</dd>
+<dt id="serv.manage_multicast_group"><code class="name flex">
+<span>def <span class="ident">manage_multicast_group</span></span>(<span>client_socket, client_address, mc_group)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Manages multicast grops. First client to connect is given secret code to share with the others.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>client_socket</code></strong></dt>
+<dd>Client socket.</dd>
+<dt><strong><code>client_address</code></strong></dt>
+<dd>Client address.</dd>
+<dt><strong><code>mc_group</code></strong></dt>
+<dd>Multicast group client wants to join.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>none</code></dt>
+<dd>None</dd>
+</dl>
+<h2 id="example">Example</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; manage_multicast_group(client_socket, client_address, mc_group)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def manage_multicast_group(client_socket, client_address, mc_group):
+    &#39;&#39;&#39;
+    Manages multicast grops. First client to connect is given secret code to share with the others.
+
+    Args:
+        client_socket: Client socket.
+        client_address: Client address.
+        mc_group: Multicast group client wants to join.
+    Returns:
+        none: None
+
+    Example:
+        &gt;&gt;&gt; manage_multicast_group(client_socket, client_address, mc_group)
+    &#39;&#39;&#39;
+    if not mc_group in mc_groups.keys(): # First user - Adding multicast group, generating code
+        secret_code = &#34;&#34;.join([str(random.randint(0,9)) for _ in range(0,6)])
+        mc_groups[mc_group] = [secret_code, []]
+        mc_groups[mc_group][1].append(client_socket)
+        client_socket.sendall(f&#34;[NEW_GROUP]:{secret_code}&#34;.encode(&#39;utf-8&#39;))
+        print(client_address, f&#34;[Client switched to multicast group: {mc_group}]&#34;)
+
+    else: # The group exists - checking secret code
+        client_socket.sendall(&#34;[CODE_REQUIRED]&#34;.encode(&#39;utf-8&#39;))
+        code = client_socket.recv(BUFF).decode(&#39;utf-8&#39;)
+
+        if code == mc_groups[mc_group][0]:
+            client_socket.sendall(&#34;[CORRECT_CODE]&#34;.encode(&#39;utf-8&#39;))
+            mc_groups[mc_group][1].append(client_socket)
+            print(client_address, f&#34;[Client switched to multicast group: {mc_group}]&#34;)
+        else:
+            client_socket.sendall(&#34;[WRONG_CODE]&#34;.encode(&#39;utf-8&#39;))
+            print(client_socket, &#34;[Client shutdown]&#34;)
+    
+    while True: # Client shutdown
+        try:
+            data = client_socket.recv(BUFF).decode(&#39;utf-8&#39;)
+
+            if data == &#39;[CLIENT_SHUTDOWN]&#39;:
+                print(client_address, &#34;[Client shutdown]&#34;)
+                mc_groups[mc_group][1].remove(client_socket)
+                break
+            
+            if not data:
+                break
+
+        except Exception as e:
+            print(f&#34;Error: {e}&#34;)
+            break
+    
+    client_socket.close()</code></pre>
+</details>
+</dd>
+<dt id="serv.send_ip_address_mdns"><code class="name flex">
+<span>def <span class="ident">send_ip_address_mdns</span></span>(<span>mdns_sock, server_name)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sends IP addres when requested from client. Used with threading module.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>mdns_sock</code></strong></dt>
+<dd>Multicast socket for managing multicast group.</dd>
+<dt><strong><code>server_name</code></strong></dt>
+<dd>Server name.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>none</code></dt>
+<dd>None</dd>
+</dl>
+<h2 id="example">Example</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; mdns_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+&gt;&gt;&gt; mdns_sock.bind(('', 8484))
+&gt;&gt;&gt; mdns_thread = threading.Thread(target=send_ip_address_mdns, args=(mdns_sock,))
+&gt;&gt;&gt; mdns_thread.start()
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def send_ip_address_mdns(mdns_sock, server_name):
+    &#39;&#39;&#39;
+    Sends IP addres when requested from client. Used with threading module.
+
+    Args:
+        mdns_sock: Multicast socket for managing multicast group.
+        server_name: Server name.
+    Returns:
+        none: None
+
+    Example:
+        &gt;&gt;&gt; mdns_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+        &gt;&gt;&gt; mdns_sock.bind((&#39;&#39;, 8484))
+        &gt;&gt;&gt; mdns_thread = threading.Thread(target=send_ip_address_mdns, args=(mdns_sock,))
+        &gt;&gt;&gt; mdns_thread.start()
+    &#39;&#39;&#39;
+    while True:
+        try:
+            data, address = mdns_sock.recvfrom(BUFF)
+
+            if address != None:
+                print(f&#34;mDNS query from: {str(address)}&#34;)
+            
+            if not data:
+                break
+            
+            if data.decode(&#39;utf-8&#39;) == f&#34;Hi, are you {server_name}?&#34;:               
+                mdns_sock.sendto(&#34;Yup&#34;.encode(), address)
+
+        except Exception as e:
+            print(f&#34;Error: {e}, MDNS&#34;)
+            break</code></pre>
+</details>
+</dd>
+<dt id="serv.signal_handler"><code class="name flex">
+<span>def <span class="ident">signal_handler</span></span>(<span>signal, frame, server_socket, clients, mdns_socket)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Handles signal. Used only with <em>partial</em> package.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>server_socket</code></strong></dt>
+<dd>Server socket on which actions are performed.</dd>
+<dt><strong><code>clients</code></strong></dt>
+<dd>List of clients socket.</dd>
+<dt><strong><code>mdns_socket</code></strong></dt>
+<dd>Multicast socket for managing multicast group.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>none</code></dt>
+<dd>Exits program with code 0</dd>
+</dl>
+<h2 id="example">Example</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; signal_handler_partial = partial(signal_handler, server_socket=server_socket, clients=clients, mdns_socket=mdns_sock)
+&gt;&gt;&gt; signal.signal(signal.SIGINT, signal_handler_partial)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def signal_handler(signal, frame, server_socket, clients, mdns_socket):
+    &#39;&#39;&#39;
+    Handles signal. Used only with *partial* package.
+
+    Args:
+        server_socket: Server socket on which actions are performed.
+        clients: List of clients socket.
+        mdns_socket: Multicast socket for managing multicast group.
+    Returns:
+        none: Exits program with code 0
+
+    Example:
+        &gt;&gt;&gt; signal_handler_partial = partial(signal_handler, server_socket=server_socket, clients=clients, mdns_socket=mdns_sock)
+        &gt;&gt;&gt; signal.signal(signal.SIGINT, signal_handler_partial)
+    &#39;&#39;&#39;
+    print(&#34;Closing server...&#34;)
+
+    # Closing mDNS UDP socket
+    try:
+        mdns_socket.shutdown(socket.SHUT_RD)
+    except OSError:
+        mdns_socket.close()
+    
+    # Closing tcp client sockets
+    for client_socket in clients:
+        client_socket.sendall(&#34;[SERVER_SHUTDOWN]&#34;.encode(&#39;utf-8&#39;))
+        client_socket.close()
+        print(client_socket, &#34;[Server shutdown]&#34;)
+
+    udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+    udp_sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, 2)
+
+    # Closing multicasts groups + TCP clients sockets (used for multicast managing)
+    print(&#34;Deleting multicast groups...&#34;)
+    for mc_group in mc_groups.keys():
+        udp_sock.sendto(&#34;[SERVER_SHUTDOWN]&#34;.encode(&#39;utf-8&#39;), (mc_group, UDP_CHAT_PORT))
+        print(mc_group, &#34;[Server shutdown]&#34;)
+        
+        for client_socket in mc_groups[mc_group][1]:
+            try:
+                client_socket.shutdown(socket.SHUT_RD)
+            except Exception:
+                pass
+    
+    udp_sock.close()
+    server_socket.close()
+    sys.exit(0)</code></pre>
+</details>
+</dd>
+<dt id="serv.start_serv"><code class="name flex">
+<span>def <span class="ident">start_serv</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Starts server. Creates TCP and UDP socket. Starts threads for client handlers.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def start_serv():
+    &#39;&#39;&#39;
+    Starts server. Creates TCP and UDP socket. Starts threads for client handlers.
+    &#39;&#39;&#39;
+    # Create a TCP socket
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
+    # Create a UDP socket (for mDNS)
+    mdns_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+    mdns_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    mdns_sock.bind((&#39;&#39;, MDSCV_PORT))
+    mreq = struct.pack(&#34;4sl&#34;, socket.inet_aton(MDSCV_ADDR), socket.INADDR_ANY)
+    mdns_sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)
+
+    # Bind the socket to a specific address and port
+    server_address = (&#39;&#39;, 4001)
+    server_socket.bind(server_address)
+
+    # Listen for incoming connections
+    server_socket.listen(5)
+    print(&#34;Server started. Waiting for connections...&#34;)
+
+    # mDNS thread
+    if args.mdns:
+        mdns_thread = threading.Thread(target=send_ip_address_mdns, args=(mdns_sock, args.mdns))
+        mdns_thread.start()
+
+    # Signal handler for termination
+    signal_handler_partial = partial(signal_handler, server_socket=server_socket, clients=clients, mdns_socket=mdns_sock)
+    signal.signal(signal.SIGINT, signal_handler_partial)
+
+    while True:
+        try:
+            # Accept a new connection
+            client_socket, client_address = server_socket.accept()
+            print(f&#34;New connection from {client_address}&#34;)
+
+            clients.append(client_socket)
+
+            client_thread = threading.Thread(target=handle_client, args=(client_socket, client_address,))
+            client_thread.start()
+        except KeyboardInterrupt:
+            break
+
+    server_socket.close()</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="serv.handle_client" href="#serv.handle_client">handle_client</a></code></li>
+<li><code><a title="serv.manage_multicast_group" href="#serv.manage_multicast_group">manage_multicast_group</a></code></li>
+<li><code><a title="serv.send_ip_address_mdns" href="#serv.send_ip_address_mdns">send_ip_address_mdns</a></code></li>
+<li><code><a title="serv.signal_handler" href="#serv.signal_handler">signal_handler</a></code></li>
+<li><code><a title="serv.start_serv" href="#serv.start_serv">start_serv</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
