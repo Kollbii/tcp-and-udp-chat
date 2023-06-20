@@ -481,7 +481,7 @@ if __name__ == &#39;__main__&#39;:
 <dd>The IP address associated with the domain name, or None if resolution fails.</dd>
 </dl>
 <h2 id="example">Example</h2>
-<pre><code class="python-repl">&gt;&gt;&gt; serv_addr = get_ip_address('theta')
+<pre><code class="language-python-repl">&gt;&gt;&gt; serv_addr = get_ip_address('theta')
 &gt;&gt;&gt; print(serv_addr)
 '192.168.23.157'
 </code></pre>
@@ -544,7 +544,7 @@ selected, and the IP address is extracted from it.</p></div>
 <dd>The IP address of the discovered server, or None if not found.</dd>
 </dl>
 <h2 id="example">Example</h2>
-<pre><code class="python-repl">&gt;&gt;&gt; serv_addr = get_server_ip_mdns('chat_server')
+<pre><code class="language-python-repl">&gt;&gt;&gt; serv_addr = get_server_ip_mdns('chat_server')
 &gt;&gt;&gt; print(serv_addr)
 '192.168.23.157'
 </code></pre></div>
@@ -606,7 +606,7 @@ selected, and the IP address is extracted from it.</p></div>
 <dd>An integer indicating the success of joining the group (0 for failure, 1 for success).</dd>
 </dl>
 <h2 id="example">Example</h2>
-<pre><code class="python-repl">&gt;&gt;&gt; join_multicast_group(client_socket)
+<pre><code class="language-python-repl">&gt;&gt;&gt; join_multicast_group(client_socket)
 </code></pre>
 <h2 id="description">Description</h2>
 <p>This function sends a join multicast group request to the server by sending a message
@@ -676,7 +676,7 @@ and sets the success variable to 1.</p></div>
 <h2 id="returns">Returns</h2>
 <p>None</p>
 <h2 id="example">Example</h2>
-<pre><code class="python-repl">&gt;&gt;&gt; receive_thread = threading.Thread(target=receive_messages, args=(client_socket,))
+<pre><code class="language-python-repl">&gt;&gt;&gt; receive_thread = threading.Thread(target=receive_messages, args=(client_socket,))
 &gt;&gt;&gt; receive_thread.start()
 </code></pre>
 <h2 id="description">Description</h2>
@@ -746,7 +746,7 @@ The function prints the message and prompts the user to press enter to close the
 <h2 id="returns">Returns</h2>
 <p>None</p>
 <h2 id="example">Example</h2>
-<pre><code class="python-repl">&gt;&gt;&gt; receive_thread = threading.Thread(target=receive_multicast_msg, args=(udp_client_socket, username))
+<pre><code class="language-python-repl">&gt;&gt;&gt; receive_thread = threading.Thread(target=receive_multicast_msg, args=(udp_client_socket, username))
 &gt;&gt;&gt; receive_thread.start()
 </code></pre>
 <h2 id="description">Description</h2>
@@ -827,7 +827,7 @@ The function prints the message and prompts the user to press enter to close the
 <h2 id="returns">Returns</h2>
 <p>None</p>
 <h2 id="example">Example</h2>
-<pre><code class="python-repl">&gt;&gt;&gt; signal_handler_partial = partial(signal_handler, client_socket=client_socket, udp_client_socket=udp_client_socket)
+<pre><code class="language-python-repl">&gt;&gt;&gt; signal_handler_partial = partial(signal_handler, client_socket=client_socket, udp_client_socket=udp_client_socket)
 &gt;&gt;&gt; signal.signal(signal.SIGINT, signal_handler_partial)
 </code></pre>
 <h2 id="description">Description</h2>
@@ -890,7 +890,7 @@ necessary cleanup operations for the client.</p></div>
 <h2 id="returns">Returns</h2>
 <p>None</p>
 <h2 id="example">Example</h2>
-<pre><code class="python-repl">&gt;&gt;&gt; start_cli(args)
+<pre><code class="language-python-repl">&gt;&gt;&gt; start_cli(args)
 </code></pre>
 <h2 id="description">Description</h2>
 <p>This function sets up the client's TCP and UDP sockets based on the provided command-line arguments.</p>
@@ -1006,7 +1006,7 @@ If successful, the client engages in a UDP chat using the udp_chat() function.</
 <h2 id="returns">Returns</h2>
 <p>None</p>
 <h2 id="example">Example</h2>
-<pre><code class="python-repl">&gt;&gt;&gt; tcp_chat(client_socket, username)
+<pre><code class="language-python-repl">&gt;&gt;&gt; tcp_chat(client_socket, username)
 </code></pre></div>
 <details class="source">
 <summary>
@@ -1066,7 +1066,7 @@ If successful, the client engages in a UDP chat using the udp_chat() function.</
 <h2 id="returns">Returns</h2>
 <p>None</p>
 <h2 id="example">Example</h2>
-<pre><code class="python-repl">&gt;&gt;&gt; udp_chat(udp_client_socket, args.multicast_group, username)
+<pre><code class="language-python-repl">&gt;&gt;&gt; udp_chat(udp_client_socket, args.multicast_group, username)
 </code></pre>
 <h2 id="description">Description</h2>
 <p>This function sets up the UDP client socket for multicast communication by

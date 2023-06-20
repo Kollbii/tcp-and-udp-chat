@@ -309,7 +309,7 @@ if __name__ == &#39;__main__&#39;:
 <h2 id="returns">Returns</h2>
 <p>None</p>
 <h2 id="example">Example</h2>
-<pre><code class="python-repl">&gt;&gt;&gt; handle_client(client_socket, client_address)
+<pre><code class="language-python-repl">&gt;&gt;&gt; handle_client(client_socket, client_address)
 </code></pre>
 <h2 id="description">Description</h2>
 <p>This function is responsible for handling and managing client connections.
@@ -398,7 +398,7 @@ that the client has shutdown, and breaks the loop to exit.</p></div>
 <h2 id="returns">Returns</h2>
 <p>None</p>
 <h2 id="example">Example</h2>
-<pre><code class="python-repl">&gt;&gt;&gt; manage_multicast_group(client_socket, client_address, mc_group)
+<pre><code class="language-python-repl">&gt;&gt;&gt; manage_multicast_group(client_socket, client_address, mc_group)
 </code></pre></div>
 <details class="source">
 <summary>
@@ -471,7 +471,7 @@ that the client has shutdown, and breaks the loop to exit.</p></div>
 <h2 id="returns">Returns</h2>
 <p>None</p>
 <h2 id="example">Example</h2>
-<pre><code class="python-repl">&gt;&gt;&gt; mdns_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+<pre><code class="language-python-repl">&gt;&gt;&gt; mdns_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
 &gt;&gt;&gt; mdns_sock.bind(('', 8484))
 &gt;&gt;&gt; mdns_thread = threading.Thread(target=send_ip_address_mdns, args=(mdns_sock,))
 &gt;&gt;&gt; mdns_thread.start()
@@ -531,7 +531,7 @@ that the client has shutdown, and breaks the loop to exit.</p></div>
 <h2 id="returns">Returns</h2>
 <p>Exits program with code 0</p>
 <h2 id="example">Example</h2>
-<pre><code class="python-repl">&gt;&gt;&gt; signal_handler_partial = partial(signal_handler, server_socket=server_socket, clients=clients, mdns_socket=mdns_sock)
+<pre><code class="language-python-repl">&gt;&gt;&gt; signal_handler_partial = partial(signal_handler, server_socket=server_socket, clients=clients, mdns_socket=mdns_sock)
 &gt;&gt;&gt; signal.signal(signal.SIGINT, signal_handler_partial)
 </code></pre></div>
 <details class="source">
